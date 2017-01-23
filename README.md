@@ -2,30 +2,32 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## feat/admin
 
-## Code scaffolding
+This branch introduces some admin components:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+- `/admin` -> `AdminComponent`
+- `/admin/dashboard` -> `DashboardComponent`
 
-## Build
+Running with `ng serve --aot --prod`, we have on home page:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+    main.a09dfaa7e45ee43bd0f9.bundle.js	6.3 KB
 
-## Running unit tests
+## feat/lazy-loading
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This branch introduces an admin module and lazy laods it.
 
-## Running end-to-end tests
+Running with `ng serve --aot --prod`, we have on home page:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+    main.10e084ae52eb070ee186.bundle.js	5.9 KB
 
-## Deploying to Github Pages
+and when navigating to `/admin`:
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+    0.fde8ede087bc325a73f4.chunk.js	2.6 KB
 
-## Further help
+Small gain of course as we have really few components.
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## feat/preload
+
+This branch introduces a preload strategy (PreloadAllModules).
+Same sizes, but the second bundle preloads automatically.
